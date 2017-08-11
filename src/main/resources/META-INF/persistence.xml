@@ -1,0 +1,15 @@
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+
+    <persistence-unit name="bd_livraria" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2008Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="javax.persistence.jdbc.driver" value="net.sourceforge.jtds.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://cgdfsrv43:63146/bdLivraria" />
+            <property name="javax.persistence.jdbc.user" value="usrBdLivraria" />
+            <property name="javax.persistence.jdbc.password" value="Plivraria" />
+        </properties>
+    </persistence-unit>
+</persistence>

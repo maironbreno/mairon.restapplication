@@ -1,0 +1,5 @@
+br\mairon\restapplication\controller\AlunoController.class
+br\mairon\restapplication\service\AlunoService.class
+br\mairon\restapplication\model\Aluno.class
+br\mairon\restapplication\Application.class
+br\mairon\restapplication\filtro\CorsFilter.class
