@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Getter @Setter
 @Entity
@@ -12,9 +11,9 @@ import java.util.Date;
 public class Aluno {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_ALUNO")
-    private Long id;
+    private Integer id;
 
     @Column(name = "TX_EMAIL_ALUNO")
     private String email;
@@ -24,4 +23,8 @@ public class Aluno {
 
     @Column(name = "NM_ALUNO")
     private String nome;
+
+    @Transient
+    private Integer idade;
+
 }

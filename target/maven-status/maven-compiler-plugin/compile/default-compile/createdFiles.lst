@@ -1,3 +1,4 @@
+br\mairon\restapplication\Persistence\PersistenceHelper.class
 br\mairon\restapplication\controller\AlunoController.class
 br\mairon\restapplication\service\AlunoService.class
 br\mairon\restapplication\model\Aluno.class

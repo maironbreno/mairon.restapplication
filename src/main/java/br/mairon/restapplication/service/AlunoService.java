@@ -1,17 +1,16 @@
 package br.mairon.restapplication.service;
 
+import br.mairon.restapplication.Persistence.PersistenceHelper;
 import br.mairon.restapplication.model.Aluno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import javax.persistence.EntityManager;
+import java.util.*;
 
 @Service
-public class AlunoService {
+public class AlunoService extends PersistenceHelper {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -27,7 +26,7 @@ public class AlunoService {
 
         for(Map row: rows) {
             Aluno aluno = new Aluno();
-            aluno.setId((Long)row.get("ID_ALUNO"));
+            aluno.setId((Integer) row.get("ID_ALUNO"));
             aluno.setEmail((String)row.get("TX_EMAIL_ALUNO"));
             aluno.setDataNascimento((String)row.get("DT_NASCIMENTO"));
             aluno.setNome((String)row.get("NM_ALUNO"));
@@ -36,4 +35,13 @@ public class AlunoService {
 
         return listaAlunos;
     }
+
+    public void salvarAluno(Aluno aluno) {
+        EntityManager entityManager = obterEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.persist(aluno);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
 }
